@@ -5,7 +5,7 @@ const fs = require('fs')
 app.set('port', (process.env.PORT || 5000));
 	
 app.get('/get', function(req, res) {	
-	fs.readFile('/sensor.json', 'utf8' , (err, data) => {
+	fs.readFile('sensor.json', 'utf8' , (err, data) => {
 		if (err) { console.error(err) }
 		res.json(JSON.parse(data))
 	})
