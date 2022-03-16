@@ -10,6 +10,7 @@ app.get('/', function(req, res) {
 		res.json(JSON.parse(data))
 	})
 }).post('/', function(req, res) {
+	console.log(req.param);
 	let sensor_data = req.param.sensor || '';
 	if(sensor_data.length != 10) {
 		res.status(400).json({"error":"data"})
