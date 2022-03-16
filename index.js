@@ -15,10 +15,10 @@ app.get('/api', function(req, res) {
 		return;
 	}
 	let sensor_data = req.param('sensor') || '';
-	if(sensor_data.length != 10) {
+	/*if(sensor_data.length != 10) {
 		res.status(400).send('Data not enough')
 		return;
-	}
+	}*/
 	fs.writeFile('sensor.txt', sensor_data, err => {
 		if (err) { console.error(err) ; return ;}
 		fs.readFile('sensor.txt', 'utf8' , (err2, data) => {
