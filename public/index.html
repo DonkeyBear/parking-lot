@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Parking Lot</title>
+		<script>
+			var oReq = new XMLHttpRequest();
+			oReq.onload = function(e) {
+			  console.log(oReq.response);
+			}
+			oReq.open("GET", 'https://iot-parking-lot.herokuapp.com/api');
+			oReq.responseType = "arraybuffer";
+			oReq.send();
+		</script>
+	</head>
+	<body>
+		
+	</body>
+</html>
