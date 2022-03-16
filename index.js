@@ -26,6 +26,7 @@ app.get('/api', function(req, res) {
 			res.send(data)
 		})
 	})
-}).listen(app.get('port'), function() {
+}).use(express.static('public'))
+.listen(app.get('port'), function() {
 	console.log('App is running, server is listening on port ', app.get('port'));
-}).use(express.static('public'));
+})
