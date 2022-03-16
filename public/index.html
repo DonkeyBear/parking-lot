@@ -6,7 +6,7 @@
 		<script>
 			if (location.protocol !== 'https:') location.replace(`https:${location.href.substring(location.protocol.length)}`);
 			$(function(){
-				setInterval(function () {
+				function get_sensor() {
 					$.ajax({
 						url: 'https://iot-parking-lot.herokuapp.com/api',
 						success: function(res) {
@@ -15,7 +15,11 @@
 							}
 						}
 					});
+				}
+				setInterval(function () {
+					get_sensor();
 				}, 5000);
+				get_sensor();
 			});	
 		</script>
 	</head>
