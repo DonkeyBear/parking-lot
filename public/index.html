@@ -4,6 +4,7 @@
 		<title>Parking Lot</title>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 		<script>
+			if (location.protocol !== 'https:') location.replace(`https:${location.href.substring(location.protocol.length)}`);
 			$(function(){
 				$.ajax({
 					url: 'https://iot-parking-lot.herokuapp.com/api',
