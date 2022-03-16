@@ -2,14 +2,16 @@
 <html>
 	<head>
 		<title>Parking Lot</title>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 		<script>
-			var oReq = new XMLHttpRequest();
-			oReq.onload = function(e) {
-			  console.log(oReq.response);
-			}
-			oReq.open("GET", 'https://iot-parking-lot.herokuapp.com/api');
-			oReq.responseType = "arraybuffer";
-			oReq.send();
+			$(function(){
+				$.ajax({
+					url: 'https://iot-parking-lot.herokuapp.com/api',
+					success: function(res) {
+						console.log(res)
+					}
+				});
+			});	
 		</script>
 	</head>
 	<body>
