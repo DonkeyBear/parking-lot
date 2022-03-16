@@ -10,10 +10,13 @@ app.get('/', function(req, res) {
 		res.send(data)
 	})
 }).post('/', function(req, res) {
-	console.log(req.param);
+	if(req.param('token') != 'QWERT12345') {
+		res.status(403).send('Forbidden')
+		return;
+	}
 	let sensor_data = req.param('sensor') || '';
 	if(sensor_data.length != 10) {
-		res.status(400).send('data not enough')
+		res.status(400).send('Data not enough')
 		return;
 	}
 	fs.writeFile('sensor.txt', sensor_data, err => {
