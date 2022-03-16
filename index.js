@@ -4,12 +4,12 @@ const fs = require('fs')
 
 app.set('port', (process.env.PORT || 5000));
 	
-app.get('/', function(req, res) {
+app.get('/api', function(req, res) {
 	fs.readFile('sensor.txt', 'utf8' , (err, data) => {
 		if (err) { console.error(err) ; return ;}
 		res.send(data)
 	})
-}).post('/', function(req, res) {
+}).post('/api', function(req, res) {
 	if(req.param('token') != 'QWERT12345') {
 		res.status(403).send('Forbidden')
 		return;
@@ -28,4 +28,4 @@ app.get('/', function(req, res) {
 	})
 }).listen(app.get('port'), function() {
 	console.log('App is running, server is listening on port ', app.get('port'));
-});
+}).use(express.static('public'));
