@@ -11,7 +11,7 @@ app.get('/', function(req, res) {
 	})
 }).post('/', function(req, res) {
 	console.log(req.param);
-	let sensor_data = req.param.sensor || '';
+	let sensor_data = req.param('sensor') || '';
 	if(sensor_data.length != 10) {
 		res.status(400).json({"error":"data"})
 		return;
