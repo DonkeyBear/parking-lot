@@ -10,11 +10,12 @@ app.get('/', function(req, res) {
 		res.json(JSON.parse(data))
 	})
 }).post('/', function(req, res) {
-	if(req.param.sensor.length != 10) {
+	let sensor_data = req.param.sensor || '';
+	if(sensor_data.length != 10) {
 		res.status(400).json({"error":"data"})
 		return;
 	}
-	fs.writeFile('sensor.json', req.param.sensor, err => {
+	fs.writeFile('sensor.json', sensor_data, err => {
 		if (err) { console.error(err) ; return ;}
 		fs.readFile('sensor.json', 'utf8' , (err2, data) => {
 			if (err2) { console.error(err2) ; return ;}
