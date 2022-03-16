@@ -10,7 +10,7 @@
 					url: 'https://iot-parking-lot.herokuapp.com/api',
 					success: function(res) {
 						for(var i=0; i<=res.length; i++) {
-							$('#sensor-'+(i+1)).res.substr(0,i);
+							$('#sensor-'+(i+1)).html(res.substr(0,i));
 						}
 					}
 				});
