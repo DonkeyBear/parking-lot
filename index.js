@@ -30,6 +30,6 @@ app.get('/api', function (req, res) {
     })
   })
 }).use(express.static('public'))
-  .listen(app.get('port'), function () {
+  .listen(app.get('port'), () => {
     console.log('App is running, server is listening on port ', app.get('port'));
   })
