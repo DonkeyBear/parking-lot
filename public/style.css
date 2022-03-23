@@ -1,0 +1,10 @@
+.mt-6 {
+  margin-top: 4.25rem;
+}
+
+.slot {
+  height: 18vw;
+  vertical-align: middle;
+  color: #848b92;
+  font-size: calc(1.325rem + .9vw) !important;
+}
