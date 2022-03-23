@@ -6,6 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>智慧停車場</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script>
     if (location.protocol !== 'https:') location.replace(`https:${location.href.substring(location.protocol.length)}`);
     $(() => {
@@ -13,7 +14,8 @@
         $.ajax({
           url: 'https://iot-parking-lot.herokuapp.com/api',
           success: (res) => {
-            $('#sensor-series').html(res);
+            document.querySelector("#sensor-series").innerHTML = res;
+            // $('#sensor-series').html(res);
             /*
             for (let i = 0; i <= res.length; i++) {
               $('#sensor-' + (i + 1)).html(res.substr(i, 1));
