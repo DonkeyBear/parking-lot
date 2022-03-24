@@ -14,7 +14,7 @@ function colorParkingLots(dataString) {
   }
   slotArray = slotArray.sort();
   for (let i = 0; i < 20; i++) {
-    if (dataString.substr(i, 1)) {
+    if (dataString.substr(i, 1) == true) {
       document.querySelector("#" + slotArray[i]).className = "slot table-danger";
     }
   }
