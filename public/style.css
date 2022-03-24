@@ -14,7 +14,8 @@
   font-weight: 450;
 }
 
-.input-group * {
+.input-group span {
+  font-size: 0.8rem;
   color: #2e3338;
 }
 
