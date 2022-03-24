@@ -14,10 +14,20 @@ function colorParkingLots(dataString) {
   }
   slotArray = slotArray.sort();
   for (let i = 0; i < 20; i++) {
-    if (dataString.substr(i, 1) == true) {
+    if (dataString.substr(i, 1)) {
       document.querySelector("#" + slotArray[i]).className = "slot table-danger";
     }
   }
+}
+
+function getEmptyParkingLots() {
+  let totalParkingLots = document.querySelectorAll(".slot").length;
+  let totalEmptyParkingLots = document.querySelectorAll(".table-success").length;
+  document.querySelector("#lot-total").innerText = totalEmptyParkingLots + " / " + totalParkingLots;
+
+  let thisFloorParkingLots = document.querySelectorAll("#floor-" + document.querySelector("#floor-select").value + " .slot").length;
+  let thisFloorEmptyParkingLots = document.querySelectorAll("#floor-" + document.querySelector("#floor-select").value + " .table-success").length;
+  document.querySelector("#lot-this-floor").innerText = thisFloorEmptyParkingLots + " / " + thisFloorParkingLots;
 }
 
 init();
@@ -31,17 +41,18 @@ document.querySelector("#floor-select").onchange = () => {
 
 if (location.protocol !== 'https:') location.replace(`https:${location.href.substring(location.protocol.length)}`);
 $(() => {
-  function get_sensor() {
+  function getSensor() {
     $.ajax({
       url: 'https://iot-parking-lot.herokuapp.com/api',
       success: (res) => {
         colorParkingLots(res);
+        getEmptyParkingLots();
       }
     });
   }
   setInterval(() => {
-    get_sensor();
+    getSensor();
   }, 2000);
   // init function
-  get_sensor();
+  getSensor();
 });
