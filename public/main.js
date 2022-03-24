@@ -37,6 +37,7 @@ document.querySelector("#floor-select").onchange = () => {
     i.style.display = "none";
   }
   document.querySelector("#floor-" + document.querySelector("#floor-select").value).style.display = "";
+  getEmptyParkingLots();
 }
 
 if (location.protocol !== 'https:') location.replace(`https:${location.href.substring(location.protocol.length)}`);
