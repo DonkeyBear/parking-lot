@@ -47,9 +47,9 @@ $(() => {
       url: 'https://iot-parking-lot.herokuapp.com/api',
       success: (res) => {
         colorParkingLots(res);
-        getEmptyParkingLots();
       }
     });
+    getEmptyParkingLots();
   }
   setInterval(() => {
     getSensor();
