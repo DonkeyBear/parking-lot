@@ -47,18 +47,15 @@ function recentInfo(dataString) {
   if (typeof lastDataString === "undefined") {
     lastDataString = dataString;
   } else if (lastDataString != dataString) {
-    // let logObject = {};
     let infoString;
     for (let i = 0; i < dataString.length; i++) {
       if (lastDataString.substr(i, 1) != dataString.substr(i, 1)) {
         if (lastDataString.substr(i, 1) == 1) {
           // a parking lot just vacated.
-          // logObject[i] = "vacated";
           infoString = parkingLots[i] + "號車位現在空出來了！"
           break;
         } else {
           // a parking lot has just been parked.
-          // logObject[i] = "parked";
           infoString = parkingLots[i] + "號車位已經被停走了。"
           break;
         }
@@ -66,14 +63,11 @@ function recentInfo(dataString) {
     }
     document.querySelector(".toast-body").innerText = infoString;
     redSpotShow();
+    lastDataString = dataString;
   }
 }
 
 function redSpotShow() {
-  // 音楽：魔王魂
-  // 原名：魔王魂 効果音 システム46.ogg
-  let se = new Audio('./hint_sound.ogg');
-  se.play();
   document.querySelector("#red-spot").style.display = "unset";
   $("#red-spot").fadeOut(speed = 1500);
 }
