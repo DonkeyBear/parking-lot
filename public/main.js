@@ -14,7 +14,7 @@ function colorParkingLots(dataString) {
   }
   slotArray = slotArray.sort();
   for (let i = 0; i < 20; i++) {
-    if (dataString.substr(i, 1) == true) {
+    if (dataString.substr(i, 1) === "0") {
       document.querySelector("#" + slotArray[i]).className = "slot table-danger";
     }
   }
@@ -50,7 +50,7 @@ function recentInfo(dataString) {
     let infoString;
     for (let i = 0; i < dataString.length; i++) {
       if (lastDataString.substr(i, 1) != dataString.substr(i, 1)) {
-        if (lastDataString.substr(i, 1) == 1) {
+        if (lastDataString.substr(i, 1) === "0") {
           // a parking lot just vacated.
           infoString = parkingLots[i] + "號車位現在空出來了！"
           break;
