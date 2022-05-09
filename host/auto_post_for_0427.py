@@ -28,6 +28,8 @@ while True:
     if latest_sensor != last_sensor:
         last_sensor = latest_sensor
         requests.post(parking_lot_api, params={"token": "PASS", "sensor": latest_sensor})
+        print("Posted: " + latest_sensor)
+    else:
+        print("Error: " + latest_sensor)
 
-    print(latest_sensor)
     sleep(1)
