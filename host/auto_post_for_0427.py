@@ -1,6 +1,7 @@
 import requests
 from os import path as osPath
 from time import sleep
+from datetime import datetime
 
 # get absolute dir this script is in
 dirHere = osPath.dirname(__file__)
@@ -25,11 +26,14 @@ while True:
         while len(latest_sensor) < 20:
             latest_sensor = "0" + latest_sensor
 
+    now = datetime.now()
+    date_time = now.strftime("%Y-%m-%d %H:%M:%S")
+            
     if latest_sensor != last_sensor:
         last_sensor = latest_sensor
         requests.post(parking_lot_api, params={"token": "PASS", "sensor": latest_sensor})
-        print("Posted: " + latest_sensor)
+        print("[{}] Post:  {}".format(date_time, latest_sensor))
     else:
-        print("Error: " + latest_sensor)
+        print("[{}] Error: {}".format(date_time, latest_sensor))
 
     sleep(1)
